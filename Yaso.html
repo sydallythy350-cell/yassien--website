@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yassien</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cairo:wght@300;600;800&family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0b0b0b;
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid #222;
+            background-color: #0b0b0b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        nav ul li a {
+            color: #888;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        nav ul li a.active, nav ul li a:hover {
+            color: #fff;
+        }
+
+        
+        .page {
+            display: none;
+            padding: 60px 8%;
+        }
+        .page.active-page {
+            display: block;
+        }
+
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 0;
+        }
+        .hero-section h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .hero-section p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #aaa;
+            direction: ltr;
+            margin-top: 10px;
+        }
+
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .photo-card {
+            border: 1px solid #ffffff;
+            background-color: #121212;
+            padding: 15px;
+            border-radius: 4px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .photo-card .img-placeholder {
+            width: 100%;
+            height: 350px;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+            border-bottom: 1px solid #222;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .card-text {
+            text-align: center;
+            padding-top: 5px;
+        }
+        .card-text h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .card-text p {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            color: #888;
+            direction: ltr;
+        }
+
+        .feelings-content {
+            max-width: 700px;
+            margin: 40px auto;
+            text-align: center;
+            line-height: 2;
+            background: #111;
+            padding: 40px;
+            border: 1px dashed #444;
+            border-radius: 8px;
+        }
+        .feelings-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: #fff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+        .feelings-content p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+        .feelings-content .signature {
+            margin-top: 40px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #888;
+        }
+
+        @media (max-width: 968px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Yassien ♥♥</div>
+        <ul>
+            <li><a id="nav-home" class="active" onclick="switchPage('home')">You</a></li>
+            <li><a id="nav-feelings" onclick="switchPage('feelings')">My feeling</a></li>
+        </ul>
+    </nav>
+
+    <div id="page-home" class="page active-page">
+        <div class="hero-section">
+            <h1>💗💗You are my love💗💗 </h1>
+            <p>لم أطلب منك وعدًا،
+ولم أطلب من الأيام أن تجمعنا،
+اكتفيت بأن أقول:
+يا رب، إن كان خيرًا، فقرّبه.</p>
+        </div>
+
+        <div class="gallery-container">
+            
+            <div class="photo-card">
+                <img src="yasochild.jpeg" alt="when you were a child" class="img-placeholder">
+                <div class="card-text">
+                    <h3>Your innocent childhood was beautiful </h3>
+                    <p>لو كان بإمكاني أن أعود إلى طفولتك،
+كنت فقط سأقف بعيدًا،
+وأتأمل الطفل الذي سيصبح يومًا
+ذلك الشخص الذي سيسكن مكانًا هادئًا في قلبي.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="chh.jpeg" class="img-placeholder">
+                <div class="card-text">
+                    <h3>I really love this picture</h3>
+                    <p>كم من السنوات مرّت بك
+وأنا لا أعرف عنك شيئًا.
+ومع ذلك،
+حين عرفتك أخيرًا،
+كان فيك شيءٌ يقول لقلبي:
+أنت لست غريبًا.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="yasograd.jpeg" class="img-placeholder">
+                <div class="card-text">
+                    <h3>You are intelligent and outstanding</h3>
+                    <p>معرفش كنت بتتخرج من ايه ساعتها بس فرحتلك اوي حقيقي و فخوره بيك جداً  يعني ي رب في تفوق دائم</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="herfamily.jpeg" class="img-placeholder">
+                <div class="card-text">
+                    <h3>Your family is the most important thing</h3>
+                    <p>يعني عيلتك تستحق الشكر انهم كانو سبب في تكوين شخصيتك حاليا 
+والدك واضح من الكونتنت اللي بينزلها انه كويس جدا واخواتك م شاء الله 
+حافظ علي اسرتك الجميله وخلي والدتك  دايما فخوره بيك لانها شايفه كل اللي بتعمله وبتفرح ل فرحك</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="page-feelings" class="page">
+        <div class="feelings-content">
+            <h2> To Yassien</h2>
+            
+            <p>مش عارفة أبدأ منين، لأن مهما حاولت أكتب عنك، بحس إن الكلام قليل جدًا على كل اللي جوايا.
+أنت من الأشخاص اللي دخلوا حياتي بهدوء، لكن بطريقة خلت وجودك فيها مميز جدًا. بقيت بكتب اسمك من غير ما أحس، وفي أوقات كتير بلاقي نفسي بفكر فيك فجأة، حتى من غير أي سبب. اسمك بقى من الحاجات اللي إيدي بتكتبها تلقائي، ومن الأسماء اللي بتعدّي على بالي أكتر مما تتخيل. وبجد أتمنى أشوفك في يوم من الأيام من أنجح وأشطر المهندسين في الدنيا، وأشوف كل التعب اللي تعبتَه بيتحول لحاجات عظيمة تستحقها.
+أتمنى تفضل دايمًا الشخص اللي عنده حلم كبير، وما يسمحش لأي حاجة إنها تخليه يتنازل عنه. وأتمنى كل خطوة في حياتك تقربك من المكان اللي نفسك تكون فيه.
+ولو في حاجة واحدة نفسي تعرفها، فهي إن وجودك بالنسبة لي مش مجرد شخص عرفته وخلاص. أنت بقيت ذكرى جميلة، ودعوة حلوة بدعي بيها، وشخص بتمنى له الخير حتى لو مش موجود قدامي.
+يمكن مش دايمًا أعرف أقول كل اللي جوايا، ويمكن الكلام أحيانًا يخونني، لكن الحقيقة البسيطة هي:
+أنا بحبك جدًا، وفخورة بيك، وبفرح لأي حاجة حلوة تحصل لك.
+وربنا يكتب لك في مستقبلك كل الخير، ويحقق لك كل حاجة نفسك فيها، ويجعلك فعلًا أشطر مهندس في الدنيا، والأهم... شخص سعيد وفخور بنفسه وبكل اللي وصل له.
+</p>
+            
+            <p>حاجه عاوزه اقولها
+بلاش يكون ليك علاقه ب اي بنت يعني مش هنكر اني مدايقه من موضوع ارتباطك وانت في اعدادي بس جاست ان حتي لو مش عشاني يبقي علشان ربنا 
+ 💘💘From the girl whose love for you now runs in her blood 
+Shaimaa Said</p>
+             
+            <p dir="ltr" class="signature">With all my love, always.</p>
+        </div>
+    </div>
+
+   <script>
+    const homePage = document.getElementById("page-home");
+    const feelingsPage = document.getElementById("page-feelings");
+
+    const homeNav = document.getElementById("nav-home");
+    const feelingsNav = document.getElementById("nav-feelings");
+
+    homeNav.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        homePage.classList.add("active-page");
+        feelingsPage.classList.remove("active-page");
+
+        homeNav.classList.add("active");
+        feelingsNav.classList.remove("active");
+    });
+
+    feelingsNav.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        feelingsPage.classList.add("active-page");
+        homePage.classList.remove("active-page");
+
+        feelingsNav.classList.add("active");
+        homeNav.classList.remove("active");
+    });
+</script>
+
+</body>
+</html>
